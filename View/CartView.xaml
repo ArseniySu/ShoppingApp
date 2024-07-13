@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="CartView" Height="450" Width="800">
     <Grid>
-        
+        <ListView ItemsSource="{Binding CartItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Product.Name}" />
+                        <TextBlock Text="{Binding Product.Price}" />
+                        <TextBlock Text="{Binding Quantity}" />
+                        <Button Command="{Binding RemoveFromCartCommand}" CommandParameter="{Binding}">
+                            Удалить
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
